@@ -88,6 +88,57 @@
         .closing-rule { width: 54px; height: 1px; background: linear-gradient(to right, transparent, var(--accent-color), transparent); margin: 0 auto 24px; }
         .closing-text { font-family: var(--font-serif) !important; font-size: 1.15rem; font-style: italic; font-weight: 400; color: var(--text-main); line-height: 2.2; letter-spacing: 0.5px; }
 
+        /* ── 貴賓邀請函按鈕 ── */
+        .guest-invite-wrap {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        .guest-invite-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-family: var(--font-sans) !important;
+            font-size: 0.72rem;
+            font-weight: 400;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent-color);
+            text-decoration: none;
+            border: 1px solid var(--accent-color);
+            padding: 15px 36px;
+            position: relative;
+            overflow: hidden;
+            transition: color 0.35s ease;
+        }
+        .guest-invite-btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--accent-color);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.35s ease;
+            z-index: 0;
+        }
+        .guest-invite-btn:hover::before { transform: scaleX(1); }
+        .guest-invite-btn:hover { color: #f4f1eb; }
+        .guest-invite-btn span,
+        .guest-invite-btn svg {
+            position: relative;
+            z-index: 1;
+        }
+        .guest-invite-btn svg {
+            width: 13px;
+            height: 13px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 1.8;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+        .guest-invite-btn:hover svg { transform: translateX(4px); }
+
         /* ── 聯繫方式 ── */
         .contact-section { text-align: center; padding-bottom: 80px; }
         .contact-label { font-family: var(--font-sans) !important; font-size: 0.62rem; letter-spacing: 4px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 16px; opacity: 0.7; }
@@ -105,6 +156,7 @@
             .date-hero .day { font-size: 5rem; right: -10px; }
             .date-hero .divider { height: 130px; }
             .closing-text { font-size: 1rem; }
+            .guest-invite-btn { font-size: 0.68rem; letter-spacing: 2px; padding: 13px 26px; }
         }
     </style>
 </head>
@@ -173,7 +225,16 @@
         <div class="closing-note reveal">
             <div class="closing-rule"></div>
             <p class="closing-text">當你卸下盛酒器角色，即是賓客的身份，<br>請休息與自在享受吧！</p>
-            <div class="closing-rule" style="margin-top: 24px; margin-bottom: 0;"></div>
+
+            <!-- 貴賓邀請函按鈕 -->
+            <div class="guest-invite-wrap">
+                <a href="https://coco881110-create.github.io/Invitation.GUEST/" target="_blank" rel="noopener" class="guest-invite-btn">
+                    <span>貴賓邀請函</span>
+                    <svg viewBox="0 0 24 24"><path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+            </div>
+
+            <div class="closing-rule" style="margin-top: 36px; margin-bottom: 0;"></div>
         </div>
 
         <!-- 聯繫方式 -->
