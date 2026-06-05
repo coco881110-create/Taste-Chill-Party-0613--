@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>VIP｜大樹專屬邀請函</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Noto+Serif+TC:wght@400;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #f4f1eb;
+            --text-main: #2c2c2c;
+            --text-muted: #5e5e5e;
+            --accent-color: #8c7e6c;
+            --card-bg: #ffffff;
+            --border-light: rgba(44, 44, 44, 0.1);
+            --font-serif: 'Cormorant Garamond', 'Noto Serif TC', 'Baskerville', 'Georgia', 'Times New Roman', 'Songti TC', 'Apple LiSung', '仿宋體', '微軟新細明體', serif;
+            --font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang TC", "Noto Sans CJK TC", "Microsoft JhengHei", sans-serif;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-sans) !important;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .hero-image-style {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+            padding: 12vh 20px 25vh;
+            position: relative;
+            background: radial-gradient(circle at 50% 0%, #fcfbf9 0%, #f4f1eb 100%);
+        }
+
+        .monogram { font-family: var(--font-serif) !important; font-size: 1rem; font-weight: 400; letter-spacing: 4px; display: flex; align-items: center; gap: 15px; }
+        .monogram .line { width: 60px; height: 1px; background-color: var(--text-main); }
+
+        .date-hero { position: relative; width: 180px; height: 180px; margin: auto; font-family: var(--font-serif) !important; user-select: none; }
+        .date-hero .month { position: absolute; top: -15px; left: -20px; font-size: 6.5rem; line-height: 1; background: linear-gradient(135deg, #a69172 0%, var(--accent-color) 50%, #6b5c49 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .date-hero .day { position: absolute; bottom: -15px; right: -20px; font-size: 6.5rem; line-height: 1; background: linear-gradient(135deg, #a69172 0%, var(--accent-color) 50%, #6b5c49 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .date-hero .divider { position: absolute; top: 50%; left: 50%; width: 1.5px; height: 160px; background: linear-gradient(to bottom, transparent, var(--accent-color), transparent); transform: translate(-50%, -50%) rotate(38deg); opacity: 0.8; }
+
+        .english-invite { font-family: var(--font-serif) !important; font-size: 0.95rem; font-style: italic; color: var(--text-muted); line-height: 2; margin-bottom: 5vh; }
+        .english-invite span { display: block; margin-bottom: 5px; }
+
+        .scroll-indicator { position: absolute; bottom: 18vh; left: 50%; transform: translateX(-50%); color: var(--accent-color); animation: fadeDown 2s infinite ease-in-out; cursor: pointer; z-index: 99; padding: 10px; }
+        .scroll-indicator svg { width: 36px; height: 36px; stroke-width: 2; }
+        @keyframes fadeDown { 0% { transform: translate(-50%, -6px); opacity: 0.2; } 50% { opacity: 1; } 100% { transform: translate(-50%, 6px); opacity: 0.2; } }
+
+        .container { max-width: 700px; margin: 0 auto; padding: 60px 20px 100px; }
+        .chinese-intro { text-align: center; margin-bottom: 60px; }
+        .chinese-intro h1 { font-family: var(--font-serif) !important; font-size: 2.6rem; font-weight: 600; color: var(--text-main); margin-bottom: 18px; letter-spacing: 2px; }
+
+        .helper-text { font-family: var(--font-sans) !important; font-size: 0.9rem !important; font-weight: 300 !important; color: var(--text-muted) !important; line-height: 2.2 !important; letter-spacing: 0.8px !important; opacity: 0.8; }
+
+        .section-card { background: var(--card-bg); border: 1px solid var(--border-light); padding: 40px; margin-bottom: 30px; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.02); }
+        .section-card h2 { font-family: var(--font-serif) !important; font-size: 1.35rem; font-weight: 600; color: var(--accent-color); margin-bottom: 25px; border-bottom: 1px solid var(--border-light); padding-bottom: 15px; text-align: center; }
+
+        ul { list-style: none !important; padding: 0 !important; }
+        li { font-family: var(--font-sans) !important; margin-bottom: 18px; color: var(--text-main); font-size: 0.95rem; padding-left: 20px; position: relative; list-style: none !important; }
+        li::before { content: '•'; position: absolute; left: 0; color: var(--accent-color); }
+        strong { font-family: var(--font-serif) !important; font-weight: 600; }
+
+        .warning-card { background: #faf7f5; border: 1px solid rgba(193, 154, 154, 0.25); }
+        .warning-card h2 { color: #a87b7b; border-bottom-color: rgba(193, 154, 154, 0.15); }
+        .warning-card p { font-family: var(--font-sans) !important; color: #7a5c5c; font-size: 0.95rem; text-align: center; }
+
+        /* ── 地圖連結 ── */
+        .map-link {
+            color: var(--accent-color);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.25s ease;
+        }
+        .map-link:hover { border-bottom-color: var(--accent-color); }
+
+        /* ── 結尾寄語 ── */
+        .closing-note { text-align: center; padding: 52px 24px 44px; margin-bottom: 10px; }
+        .closing-rule { width: 54px; height: 1px; background: linear-gradient(to right, transparent, var(--accent-color), transparent); margin: 0 auto 24px; }
+        .closing-text { font-family: var(--font-serif) !important; font-size: 1.15rem; font-style: italic; font-weight: 400; color: var(--text-main); line-height: 2.2; letter-spacing: 0.5px; }
+
+        /* ── 聯繫方式 ── */
+        .contact-section { text-align: center; padding-bottom: 80px; }
+        .contact-label { font-family: var(--font-sans) !important; font-size: 0.62rem; letter-spacing: 4px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 16px; opacity: 0.7; }
+        .twitter-link { display: inline-flex; align-items: center; gap: 9px; font-family: var(--font-sans) !important; font-size: 0.8rem; font-weight: 400; letter-spacing: 1.5px; color: var(--text-muted); text-decoration: none; transition: color 0.3s ease; }
+        .twitter-link:hover { color: var(--text-main); }
+        .twitter-link svg { width: 15px; height: 15px; fill: currentColor; flex-shrink: 0; }
+
+        @media (max-width: 600px) {
+            .hero-image-style { padding: 10vh 20px 25vh !important; }
+            .helper-text { font-size: 0.78rem !important; line-height: 2.4 !important; padding: 0 15px !important; }
+            .chinese-intro h1 { font-size: 2.1rem !important; }
+            .scroll-indicator { bottom: 20vh !important; }
+            .date-hero { width: 140px; height: 140px; }
+            .date-hero .month { font-size: 5rem; left: -10px; }
+            .date-hero .day { font-size: 5rem; right: -10px; }
+            .date-hero .divider { height: 130px; }
+            .closing-text { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero-image-style">
+        <div class="monogram">VIP <span class="line"></span>大樹</div>
+        
+        <div class="date-hero">
+            <div class="month">06</div>
+            <div class="divider"></div>
+            <div class="day">13</div>
+        </div>
+
+        <div class="english-invite">
+            <span>Kindly save the date to celebrate our new chapter</span>
+            <span>at the TASTE &amp; CHILL PARTY hosted by 牙</span>
+            <span>Private Gathering / Details to follow</span>
+        </div>
+        <div class="scroll-indicator" onclick="window.scrollBy({top: window.innerHeight, behavior: 'smooth'});">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="chinese-intro reveal">
+            <h1>Dear 大樹</h1>
+            <p class="helper-text">誠摯邀請您參與本次專屬活動<br>為了確保您在安全且受尊重的狀態下展演<br>請詳閱以下為您量身打造的規範</p>
+        </div>
+
+        <div class="section-card reveal">
+            <h2>活動資訊</h2>
+            <ul>
+                <li><strong>安排時段：</strong>2026 / 06 / 13 (六) 14:40 - 15:30</li>
+                <li><strong>展示機制：</strong>盛酒器展示50分鐘（中途可變化姿勢與自行休息），賓客自行享用。</li>
+                <li><strong>現場配置：</strong>備有淋浴間（請自備毛巾）瑜珈墊、瑜伽磚、軟墊及板凳，供您自由調整舒適姿態。</li>
+                <li><strong>活動地點：</strong><a href="https://maps.app.goo.gl/3gvJkJyXa9t1hr2q9" target="_blank" rel="noopener" class="map-link">開啟 Google Maps 📍</a></li>
+            </ul>
+        </div>
+
+        <div class="section-card reveal">
+            <h2>服裝與展演設定</h2>
+            <ul>
+                <li><strong>服裝建議：</strong>無風格限制。全裸佳，亦可著內衣褲或防護貼；頭飾自理。</li>
+                <li><strong>展演方式：</strong>化身專屬酒杯，接受互動或純觀賞，歡迎發揮創意姿勢。</li>
+                <li><strong>現場配置：</strong>備有瑜珈墊、瑜伽磚、軟墊及板凳，供您自由調整舒適姿態。</li>
+            </ul>
+        </div>
+
+        <div class="section-card reveal">
+            <h2>互動規範與絕對安全</h2>
+            <ul>
+                <li><strong>絕對自主：</strong>您擁有完全主導權，可自由指定盛酒部位與觸碰禁區。</li>
+                <li><strong>行為限制：</strong>賓客僅限以「舔、吸、啜飲」取酒，嚴禁任何其他肢體互動。</li>
+                <li><strong>衛生控管：</strong>單一部位採「紅點標記」機制，絕不重複提供給下一位賓客。</li>
+                <li><strong>安全詞🫸：</strong>若感身心不適，請立即說出「<strong>紅綠燈</strong>」，一切互動將無條件即刻停止。</li>
+            </ul>
+        </div>
+
+        <div class="section-card warning-card reveal">
+            <h2>謹慎評估提醒</h2>
+            <p>由於互動過程會實際接觸到客人的嘴巴與口水，且本次活動沒有設立黑名單，請您務必謹慎評估自身的接受度。</p>
+        </div>
+
+        <!-- 結尾寄語 -->
+        <div class="closing-note reveal">
+            <div class="closing-rule"></div>
+            <p class="closing-text">當你卸下盛酒器角色，即是賓客的身份，<br>請休息與自在享受吧！</p>
+            <div class="closing-rule" style="margin-top: 24px; margin-bottom: 0;"></div>
+        </div>
+
+        <!-- 聯繫方式 -->
+        <div class="contact-section reveal">
+            <p class="contact-label">Contact</p>
+            <a href="https://x.com/un_iad?s=11" target="_blank" rel="noopener" class="twitter-link">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.763l7.737-8.835L2.25 2.25h7.228l4.254 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/>
+                </svg>
+                @un_iad
+            </a>
+        </div>
+
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.body.classList.add("js-enabled");
+            var reveals = document.querySelectorAll(".reveal");
+            var obs = new IntersectionObserver(e => e.forEach(i => i.isIntersecting && i.target.classList.add("visible")), {threshold: 0.02});
+            reveals.forEach(r => obs.observe(r));
+        });
+    </script>
+</body>
+</html>
